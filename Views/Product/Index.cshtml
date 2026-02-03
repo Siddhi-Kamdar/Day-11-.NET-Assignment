@@ -1,0 +1,14 @@
+@model List<SimpleStore.Models.Product>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Products</h2>
+    <a class="btn btn-primary" asp-controller="Product" asp-action="Create">Add Product</a>
+</div>
+<h2>Total Products: @ViewBag.Total</h2>
+
+<div class="row">
+@foreach (var item in Model)
+{
+    <partial name="_ProductCard" model="item" />
+}
+</div>

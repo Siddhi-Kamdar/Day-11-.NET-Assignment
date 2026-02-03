@@ -1,0 +1,25 @@
+@model SimpleStore.Models.Product
+
+<div class="col-md-4 mb-4">
+    <div class="card h-100 shadow-sm">
+
+        <div class="card-body">
+            <h5 class="card-title">@Model.Name</h5>
+
+            <h6 class="card-subtitle mb-2 text-muted">
+                @Model.Category
+            </h6>
+
+            <p class="card-text">
+                <strong>Price:</strong> ₹@Model.Price <br />
+                <strong>Available:</strong> @Model.Quantity units
+            </p>
+        </div>
+        <a asp-action="Edit" asp-controller="Product" asp-route-id="@Model.Id" class="btn btn-warning me-2">Edit</a>
+        <form asp-action="Delete" asp-controller="Product" method="post" class="mt-2"
+            onsubmit="return confirm('delete?');">
+            <input type="hidden" name="id" value="@Model.Id" />
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    </div>
+</div>

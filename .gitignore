@@ -1,0 +1,13 @@
+bin/
+obj/
+
+.vscode/
+.vs/
+
+*.log
+
+.mdf
+.lgf
+.db
+
+.DS_Store
