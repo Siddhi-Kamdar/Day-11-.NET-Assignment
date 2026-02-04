@@ -1,5 +1,7 @@
 @model SimpleStore.Models.Product
-
+@{
+    int unusedValue = 42; // Noncompliant: variable is never used
+}
 <h2 class="mb-4">Add New Product</h2>
 
 <div class="row">

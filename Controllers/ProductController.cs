@@ -42,7 +42,7 @@ public class ProductController : Controller
     public IActionResult Edit(int id)
     {
         var product = _service.GetById(id);
-        if(product == null)
+        if (product == null)
         {
             return NotFound();
         }
@@ -50,12 +50,12 @@ public class ProductController : Controller
         return View(product);
     }
 
-[HttpPost]
+    [HttpPost]
     public IActionResult Edit(Product product)
     {
-        if(!ModelState.IsValid) 
+        if (!ModelState.IsValid)
             return View(product);
-        
+
         _service.Update(product);
         return RedirectToAction(nameof(Index));
     }

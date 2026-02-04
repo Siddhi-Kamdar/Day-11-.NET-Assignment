@@ -41,6 +41,11 @@ public class ProductService : IProductService
 
     public void Update(Product product)
     {
+        if (product.Name.Contains("price", StringComparison.OrdinalIgnoreCase))
+            throw new Exception("Product name cannot contain 'price'");
+
+        if (product.Price <= 0)
+            throw new Exception("Price must be positive");
         _repo.Update(product);
     }
 }
